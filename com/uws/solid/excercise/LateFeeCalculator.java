@@ -3,15 +3,14 @@ package com.uws.solid.excercise;
 /**
  * Calculates late fees for overdue books.
  * Responsibility: Apply the correct fee rate based on the book's type.
+ *
+ * Open/Closed Principle: This class is closed for modification.
+ * It delegates the per-day rate to the BookType interface, so adding a
+ * new book type never requires touching this calculator.
  */
 public class LateFeeCalculator {
 
     public int calculateLateFee(Book book, int daysLate) {
-        switch (book.getType()) {
-            case "physical": return daysLate * 1; // $1 per day
-            case "ebook":    return daysLate * 2; // $2 per day
-            case "audio":    return daysLate * 3; // $3 per day
-            default:         return 0;
-        }
+        return daysLate * book.getBookType().getDailyLateFee();
     }
 }

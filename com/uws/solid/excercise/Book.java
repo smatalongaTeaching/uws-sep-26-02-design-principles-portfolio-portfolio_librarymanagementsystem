@@ -1,22 +1,28 @@
 package com.uws.solid.excercise;
 
-
-public class Book {// book class
-    private int id;// changed to only hold data
+/**
+ * Represents a book's core identity and data.
+ * Responsibility: Store and expose book metadata only.
+ *
+ * Open/Closed Principle: Book accepts any BookType implementation,
+ * so new types can be introduced without touching this class.
+ */
+public class Book {
+    private int id;
     private String title;
     private String author;
-    private String type; // "physical", "ebook", or "audio"
+    private BookType bookType;
 
     public Book(int id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public Book(int id, String title, String author, String type) {
+    public Book(int id, String title, String author, BookType bookType) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.type = type;
+        this.bookType = bookType;
     }
 
     public int getId() {
@@ -31,7 +37,7 @@ public class Book {// book class
         return author;
     }
 
-    public String getType() {
-        return type;
+    public BookType getBookType() {
+        return bookType;
     }
 }
