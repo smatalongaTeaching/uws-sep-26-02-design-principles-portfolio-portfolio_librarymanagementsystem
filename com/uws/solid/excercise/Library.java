@@ -1,8 +1,5 @@
 package com.uws.solid.excercise;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Library {
     private final BookRepository repository;
     private final LendingService lendingService;

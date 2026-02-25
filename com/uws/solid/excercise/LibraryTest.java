@@ -3,8 +3,6 @@ package com.uws.solid.excercise;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 class LibraryTest {
 
@@ -21,16 +19,16 @@ class LibraryTest {
         library.addBook(book2);
     }
 
+
     @Test
     void testLendBookToStudent() {
        
         library.lendBook(1, "student");
 
         assertFalse(book1.isAvailable());
-        assertEquals(book1.getLendingPeriod(), 14);
-
-       
+        assertEquals(book1.getLendingPeriod(), 14);      
     }
+
 
     @Test
     void testLendBookToFaculty() {
@@ -39,10 +37,9 @@ class LibraryTest {
         library.lendBook(2, "faculty");
 
         assertFalse(book2.isAvailable());
-        assertEquals(book2.getLendingPeriod(),30);
-
-        
+        assertEquals(book2.getLendingPeriod(),30);        
     }
+
 
     @Test
     void testLendBookToRegularPatron() {
@@ -54,10 +51,11 @@ class LibraryTest {
         assertEquals(book1.getLendingPeriod(),7);
     }
 
+    
     @Test
     void testLateFeeUsesBookTypeStrategy() {
         Book audio = new Book(3, "Audio", new AudioBookType());
         assertEquals(9, audio.calculateLateFee(3));
     }
-    
+
 }
