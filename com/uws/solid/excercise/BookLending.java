@@ -1,16 +1,27 @@
 package com.uws.solid.excercise;
 
 
-public class BookLending {// new lending class
+public class BookLending {
     private final Book book;
     private boolean isAvailable;
     private int lendingPeriod;
 
     public BookLending(Book book) {
         this.book = book;
-        this.isAvailable = true; // Default available
+        this.isAvailable = true;
+        this.lendingPeriod = LendingPeriod.NOT_CHECKED_OUT;
     }
 
+    /**
+     * Checks out the book using the standard lending period for its type.
+     */
+    public void checkOut() {
+        checkOut(book.getBookType().getDefaultLendingPeriodDays());
+    }
+
+    /**
+     * Checks out the book with an explicit lending period (e.g. for renewals or overrides).
+     */
     public void checkOut(int lendingPeriod) {
         if (isAvailable) {
             isAvailable = false;
@@ -22,7 +33,7 @@ public class BookLending {// new lending class
 
     public void returnBook() {
         isAvailable = true;
-        this.lendingPeriod = 0;
+        this.lendingPeriod = LendingPeriod.NOT_CHECKED_OUT;
     }
 
     public boolean isAvailable() {

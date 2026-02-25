@@ -9,7 +9,12 @@ public class EBookType implements BookType {
     }
 
     @Override
+    public int getDefaultLendingPeriodDays() {
+        return LendingPeriod.EBOOK_DAYS;
+    }
+
+    @Override
     public int getDailyLateFee() {
-        return 2;
+        return LateFee.EBOOK_PER_DAY;
     }
 }

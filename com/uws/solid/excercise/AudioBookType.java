@@ -1,6 +1,7 @@
 package com.uws.solid.excercise;
 
-s AudioBookType implements BookType {
+
+public class AudioBookType implements BookType {
 
     @Override
     public String getTypeName() {
@@ -8,7 +9,12 @@ s AudioBookType implements BookType {
     }
 
     @Override
+    public int getDefaultLendingPeriodDays() {
+        return LendingPeriod.AUDIO_BOOK_DAYS;
+    }
+
+    @Override
     public int getDailyLateFee() {
-        return 3;
+        return LateFee.AUDIO_BOOK_PER_DAY;
     }
 }

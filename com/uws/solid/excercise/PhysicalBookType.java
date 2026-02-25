@@ -1,5 +1,6 @@
 package com.uws.solid.excercise;
 
+
 public class PhysicalBookType implements BookType {
 
     @Override
@@ -8,7 +9,12 @@ public class PhysicalBookType implements BookType {
     }
 
     @Override
+    public int getDefaultLendingPeriodDays() {
+        return LendingPeriod.PHYSICAL_BOOK_DAYS;
+    }
+
+    @Override
     public int getDailyLateFee() {
-        return 1;
+        return LateFee.PHYSICAL_BOOK_PER_DAY;
     }
 }

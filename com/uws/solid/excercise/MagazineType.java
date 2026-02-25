@@ -9,7 +9,12 @@ public class MagazineType implements BookType {
     }
 
     @Override
+    public int getDefaultLendingPeriodDays() {
+        return LendingPeriod.MAGAZINE_DAYS;
+    }
+
+    @Override
     public int getDailyLateFee() {
-        return 4;
+        return LateFee.MAGAZINE_PER_DAY;
     }
 }
