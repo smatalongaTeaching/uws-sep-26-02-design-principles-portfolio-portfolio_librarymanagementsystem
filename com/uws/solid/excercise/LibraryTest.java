@@ -27,7 +27,7 @@ class LibraryTest {
         library.lendBook(1, "student");
 
         assertFalse(book1.isAvailable());
-        assertEquals(book1.getlendingPeriod(), 14);
+        assertEquals(book1.getLendingPeriod(), 14);
 
        
     }
@@ -39,7 +39,7 @@ class LibraryTest {
         library.lendBook(2, "faculty");
 
         assertFalse(book2.isAvailable());
-        assertEquals(book2.getlendingPeriod(),30);
+        assertEquals(book2.getLendingPeriod(),30);
 
         
     }
@@ -51,6 +51,6 @@ class LibraryTest {
         library.lendBook(1, "guest");
 
         assertFalse(book1.isAvailable());
-        assertEquals(book1.getlendingPeriod(),7);
+        assertEquals(book1.getLendingPeriod(),7);
     }
 }

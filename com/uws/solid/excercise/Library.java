@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Library {
     private List<Book> books;
+    private final LendingService lendingService;
     
     public Library() {
-        this.books = new ArrayList<Book>();
+        this.books = new ArrayList<>();
+        this.lendingService = new DefaultLendingService();
     }
     
     public void addBook(Book book) {
@@ -18,17 +20,7 @@ public class Library {
     public void lendBook(int bookId, String patronType) {
         Book book = findBook(bookId);
         if (book != null) {
-            int lendingPeriod = 0;
-            if (patronType.equals("student")) {
-                lendingPeriod = LendingPeriods.STUDENT_DAYS;
-            } else if (patronType.equals("faculty")) {
-                lendingPeriod = LendingPeriods.FACULTY_DAYS;
-            } else {
-                lendingPeriod = LendingPeriods.REGULAR_DAYS;
-            }
-            book.checkOut(lendingPeriod);
-            
-            
+            lendingService.lend(book, patronType);
         }
     }
     
