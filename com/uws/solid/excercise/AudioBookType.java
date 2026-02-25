@@ -1,10 +1,6 @@
 package com.uws.solid.excercise;
 
-/**
- * Book type representing an audiobook.
- * Late fee: $3 per day.
- */
-public class AudioBookType implements BookType {
+s AudioBookType implements BookType {
 
     @Override
     public String getTypeName() {
@@ -13,6 +9,6 @@ public class AudioBookType implements BookType {
 
     @Override
     public int getDailyLateFee() {
-        return 3; // $3 per day
+        return 3;
     }
 }

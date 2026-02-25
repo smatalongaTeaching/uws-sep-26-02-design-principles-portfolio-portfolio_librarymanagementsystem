@@ -1,12 +1,6 @@
 package com.uws.solid.excercise;
 
-/**
- * Represents a book's core identity and data.
- * Responsibility: Store and expose book metadata only.
- *
- * Open/Closed Principle: Book accepts any BookType implementation,
- * so new types can be introduced without touching this class.
- */
+
 public class Book {
     private int id;
     private String title;
