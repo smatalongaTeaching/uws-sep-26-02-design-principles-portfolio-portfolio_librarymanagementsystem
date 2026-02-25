@@ -7,9 +7,13 @@ public class Library {
     private List<Book> books;
     private final LendingService lendingService;
     
-    public Library() {
+    public Library(LendingService lendingService) {
         this.books = new ArrayList<>();
-        this.lendingService = new DefaultLendingService();
+        this.lendingService = lendingService;
+    }
+
+    public Library() {
+        this(new DefaultLendingService());
     }
     
     public void addBook(Book book) {
