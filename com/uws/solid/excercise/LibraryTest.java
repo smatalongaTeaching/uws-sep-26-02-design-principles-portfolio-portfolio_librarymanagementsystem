@@ -53,4 +53,11 @@ class LibraryTest {
         assertFalse(book1.isAvailable());
         assertEquals(book1.getLendingPeriod(),7);
     }
+
+    @Test
+    void testLateFeeUsesBookTypeStrategy() {
+        Book audio = new Book(3, "Audio", new AudioBookType());
+        assertEquals(9, audio.calculateLateFee(3));
+    }
+    
 }
