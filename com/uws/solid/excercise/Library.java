@@ -18,17 +18,14 @@ public class Library {
     public void lendBook(int bookId, String patronType) {
         Book book = findBook(bookId);
         if (book != null) {
-            // Check patron eligibility
             int lendingPeriod = 0;
             if (patronType.equals("student")) {
-                lendingPeriod = 14; // 14 days for students
+                lendingPeriod = LendingPeriods.STUDENT_DAYS;
             } else if (patronType.equals("faculty")) {
-                lendingPeriod = 30; // 30 days for faculty
+                lendingPeriod = LendingPeriods.FACULTY_DAYS;
             } else {
-                lendingPeriod = 7; // 7 days for regular patrons
+                lendingPeriod = LendingPeriods.REGULAR_DAYS;
             }
-            
-            // Checkout book
             book.checkOut(lendingPeriod);
             
             
