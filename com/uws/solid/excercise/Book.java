@@ -5,10 +5,12 @@ public class Book {
     private String title;
     private boolean isAvailable;
     private int lendingPeriod;
+    private final BookType bookType;
 
-    public Book(int id, String title) {
+    public Book(int id, String title, BookType bookType) {
         this.id = id;
         this.title = title;
+        this.bookType = bookType;
         this.isAvailable = true;
     }
 
@@ -36,5 +38,9 @@ public class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    public int calculateLateFee(int daysLate) {
+        return daysLate * bookType.lateFeePerDay();
     }
 }

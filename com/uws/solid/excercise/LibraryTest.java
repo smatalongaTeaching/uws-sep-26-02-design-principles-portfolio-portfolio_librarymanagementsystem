@@ -15,8 +15,8 @@ class LibraryTest {
     @BeforeEach
     void setUp() {
         library = new Library();
-        book1 = new Book(1, "Book One");
-        book2 = new Book(2, "Book Two");
+        book1 = new Book(1, "Book One", new PhysicalBookType());
+        book2 = new Book(2, "Book Two", new EBookType());
         library.addBook(book1);
         library.addBook(book2);
     }
